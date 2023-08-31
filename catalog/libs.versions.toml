@@ -1,0 +1,35 @@
+[versions]
+
+# core
+springboot-version="3.1.3"
+spring-depencency-management="1.1.3"
+
+# tests
+assertj-version="3.24.2"
+junit-version = "5.10.0"
+mockito-version="5.5.0"
+mockito-inline-version="5.2.0"
+mockito-junit-version="5.2.0"
+rest-assured-version="5.3.1"
+
+[libraries]
+# test
+## unit test
+assertj={module="org.assertj:assertj-core", version.ref="assertj-version"}
+junit-jupiter = {module="org.junit.jupiter:junit-jupiter", version.ref="junit-version"}
+mockito-core= {module="org.mockito:mockito-core", version.ref="mockito-version"}
+mockito-inline= {module="org.mockito:mockito-inline", version.ref="mockito-inline-version"}
+mockito-junit-jupiter= {module="org.mockito:mockito-junit-jupiter", version.ref="mockito-junit-version"}
+
+## integration tst
+springboot-starter-test = {module="org.springframework.boot:spring-boot-starter-test", version.ref="springboot-version"}
+
+## system test
+rest-assured= {module="io.rest-assured:rest-assured", version.ref="rest-assured-version"}
+
+[bundles]
+unit-test =["assertj", "junit-jupiter", "mockito-core", "mockito-junit-jupiter" ]
+integration-test = ["mockito-core","mockito-inline", "springboot-starter-test" ]
+system-test = ["mockito-core","mockito-inline", "springboot-starter-test", "rest-assured" ]
+
+[plugins]
